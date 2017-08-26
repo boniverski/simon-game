@@ -5,6 +5,42 @@
     <title>Simon Game | Free Code Camp</title>
   </head>
   <body>
-    
+
+    <section class="simon">
+
+      <section class="controller">
+        <p class="title" id="gameTitle">Simon<sup>®</sup></p>
+        <div class="counter"><h3 id="gameCounter">--</h3></div>
+        <button class="start" id="startGame">Start Game</button>
+
+        <section class="sliders">
+          <label class="switch" id="switchLeft">
+            <input type="checkbox">
+            <div class="slider sliderLeft round"></div>
+          </label>
+          <label class="switch" id="switchRight">
+            <input type="checkbox">
+            <div class="slider sliderRight round"></div>
+          </label>
+        </section>
+
+        <section class="labels">
+          <p><span class="onOff">On/Off</span><span class="strict">Strict Mode</span></p>
+        </section>
+
+      </section>
+
+      <div class="row">
+        <div class="container green" id="green"></div>
+        <div class="container red" id="red"></div>
+      </div>
+
+      <div class="row">
+        <div class="container yellow" id="yellow"></div>
+        <div class="container blue" id="blue"></div>
+      </div>
+
+    </section>
+
   </body>
 </html>
