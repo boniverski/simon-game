@@ -44,18 +44,21 @@ function green() {
 	$('#green').toggleClass("clickedGreen");
 	greenAudio.play();
 }
+
 function red() {
-	reset()
+	reset();
 	$('#red').toggleClass("clickedRed");
 	redAudio.play();
 }
+
 function yellow() {
-	reset()
+	reset();
 	$('#yellow').toggleClass("clickedYellow");
 	yellowAudio.play();
 }
+
 function blue() {
-	reset()
+	reset();
 	$('#blue').toggleClass("clickedBlue");
 	blueAudio.play();
 }
@@ -72,48 +75,40 @@ function reset() {
 $("#startGame").click(function() {
 
 	if ( w > 0 ) {
+		$(".green").removeClass("greenWinner");
+		$(".red").removeClass("redWinner");
+		$(".yellow").removeClass("yellowWinner");
+		$(".blue").removeClass("blueWinner");
 
-	$(".green").removeClass("greenWinner");
-	$(".red").removeClass("redWinner");
-	$(".yellow").removeClass("yellowWinner");
-	$(".blue").removeClass("blueWinner");
-
-	n = 0;
-	game = [];
-	user = [];
-	count = 0;
-	counter = 0;
-	userCount = 0;
-	document.getElementById("gameCounter").innerHTML = 1;
-	machine();
-
+		n = 0;
+		game = [];
+		user = [];
+		count = 0;
+		counter = 0;
+		userCount = 0;
+		document.getElementById("gameCounter").innerHTML = 1;
+		machine();
 	}
-
 	else {
 		console.log("Game is off");
 	}
-
 });
-
 
 var z = -1;
 var w = -1;
 
 // Input switches control On/Off State and Strict Mode:
 $('#switchRight').change(function(){
-
 	z *= -1;
 	console.log("Strict Mode On/Off");
-
 });
 
 $('#switchLeft').change(function(){
 
 	w *= -1;
 	console.log("Game On/Off");
-
 	if ( w > 0 ) {
-		$("#startGame").css("color", "black");
+		$("#startGame").css("color", "white");
 	}
 
 	if ( w < 0 ) {
@@ -138,26 +133,20 @@ $('#switchLeft').change(function(){
 		$(".red").removeClass("redWinner");
 		$(".yellow").removeClass("yellowWinner");
 		$(".blue").removeClass("blueWinner");
-
 	}
-
 });
 
 // Computer plays function:
 function machine() {
-
 	var x = 1;
-
 	function clear() {
 		clearInterval(machine);
 	}
-
 	if ( count > 0 ) {
 		x = 0;
 	}
 
 	var machine = setInterval(function() {
-
 			reset();
 			random();
 			simon();
@@ -170,9 +159,7 @@ function machine() {
 					reset();
 				}, 500);
 			}
-
 		 // 500 millisecond pause before first button press
-
 	}, 750 * x); // Pause between iterations of button press functions
 
 };
@@ -186,7 +173,6 @@ function random() {
 
 // Assign the number to a button:
 function simon() {
-
 	if (rand === 1) {
 		green();
 		console.log("Clicked Green");
@@ -203,28 +189,25 @@ function simon() {
 		blue();
 		console.log("Clicked Blue");
 	}
-
 }
 
 // Parse user input:
 function userPlay() {
-
 	// Game ends function:
 	if ( user[userCount] === game[userCount] && game.length === 5 && user.length === game.length ) {
-		console.log("game over, you win!");
+		console.log("Game over, you win!");
 
 		$(".green").addClass("greenWinner");
 		$(".red").addClass("redWinner");
 		$(".yellow").addClass("yellowWinner");
 		$(".blue").addClass("blueWinner");
 
-		document.getElementById("gameCounter").innerHTML = "^_^";
-		document.getElementById("gameTitle").innerHTML = "Winner!";
+		document.getElementById("gameCounter").innerHTML = "Win!";
 	}
 
 	// User correctly completed a round:
 	else if ( user.length === game.length && user[userCount] === game[userCount] ) {
-		console.log("correct!");
+		console.log("Correct!");
 		user = [];
 		userCount = 0;
 
@@ -238,7 +221,7 @@ function userPlay() {
 
 	// User correctly identifies next element in series:
 	else if ( user[userCount] === game[userCount] ) {
-		console.log("correct!");
+		console.log("Correct!");
 		userCount++;
 		setTimeout(function() {
 			reset();
@@ -247,14 +230,13 @@ function userPlay() {
 
 	else if ( z > 0 ) {
 
-		console.log("wrong!");
+		console.log("Wrong!");
 		game = [];
 		user = [];
 		count = 0;
 		counter = 0;
 		n = 0;
-		document.getElementById("gameCounter").innerHTML = "!!!";
-		document.getElementById("gameTitle").innerHTML = "Wrong!";
+		document.getElementById("gameCounter").innerHTML = "Wrong!";
 
 		$(".green").addClass("greenLoser");
 		$(".red").addClass("redLoser");
@@ -265,24 +247,19 @@ function userPlay() {
 		setTimeout(function() {
 
 			document.getElementById("gameCounter").innerHTML = 1;
-			document.getElementById("gameTitle").innerHTML = "Simon<sup>®</sup>";
 
 			$(".green").removeClass("greenLoser");
 			$(".red").removeClass("redLoser");
 			$(".yellow").removeClass("yellowLoser");
 			$(".blue").removeClass("blueLoser");
-
 			machine();
-
 		}, 1750);
 	}
 
 	else {
-
 		n = 0;
 
-		document.getElementById("gameCounter").innerHTML = "!!!";
-		document.getElementById("gameTitle").innerHTML = "Wrong!";
+		document.getElementById("gameCounter").innerHTML = "Wrong!";
 
 		$(".green").addClass("greenLoser");
 		$(".red").addClass("redLoser");
@@ -298,18 +275,13 @@ function userPlay() {
 
 			document.getElementById("gameCounter").innerHTML = counter + 1;
 			document.getElementById("gameTitle").innerHTML = "Simon<sup>®</sup>";
-
 			checkRepeat();
-
 		}, 750);
-
 	}
-
 }
 
 // Repeat function for subsequent game rounds:
 function repeat() {
-
 	if ( game[n] === 1 ) {
 		green();
 		n++;
@@ -326,18 +298,15 @@ function repeat() {
 		blue();
 		n++;
 	}
-
 }
 
 // Check if the computer has iterated to the current round:
 function check() {
-
 	function clear() {
 		clearInterval(timeFunction);
 	}
 
 	var timeFunction = setInterval(function() {
-
 		reset();
 
 		if ( n !== game.length ) {
@@ -350,42 +319,27 @@ function check() {
 			clear();
 			machine();
 		}
-
 	}, 750);
 
 }
 
 // Check function for when the user fails a round (normal mode):
 function checkRepeat() {
-
 	function clear() {
 		clearInterval(timeFunction);
 	}
 
 	var timeFunction = setInterval(function() {
-
 		reset();
 
 		if ( n !== game.length ) {
 			repeat();
 		}
 		else if ( n === game.length ) {
-
 			user = [];
 			userCount = 0;
 			n = 0;
 			clear();
-
 		}
-
 	}, 750);
-
 }
-
-// Show and hide the game instructions:
-$("#instructions").click(function() {
-	$('#box').show();
-});
-$("#close").click(function() {
-	$('#box').hide();
-});

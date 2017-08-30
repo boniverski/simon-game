@@ -1,37 +1,48 @@
-body {
-  background: #7290ff;
+* {
+  font-family: "Raleway"; }
+
+html, body {
+  height: 100%;
   margin: 0;
-  padding: 0; }
+  background: #323232; }
+
+.wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+.simon {
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  margin: 0 auto;
+  position: relative;
+  width: 500px;
+  justify-content: center;
+  align-items: center; }
 
 .controller {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   width: 250px;
   height: 250px;
-  background: #b4b4b4;
+  background: white;
   border-radius: 50%;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
-  top: 190px;
-  border: 20px solid #282828;
   text-align: center; }
 
-.title {
-  font-size: 45px;
-  font-family: 'Comfortaa', cursive;
-  margin-top: 22.5px;
-  margin-bottom: 0px; }
-
-sup {
-  font-size: 20px; }
-
 .counter {
-  width: 50px;
-  height: 35px;
+  width: 100px;
+  padding-top: 10px;
+  padding-bottom: 5px;
   background: #323232;
-  border-radius: 15px;
-  margin: -20px auto 5px auto; }
+  border-radius: 5px; }
 
 #gameCounter {
   padding-top: 5px;
@@ -39,13 +50,12 @@ sup {
   font-family: 'Exo 2', sans-serif; }
 
 .start {
-  font-size: 25px;
-  font-family: 'Comfortaa', cursive;
-  border-radius: 25px;
+  font-size: 20px;
+  border-radius: 5px;
   border: none;
-  background: #e1e1e1;
-  margin-top: 2.5px;
-  margin-bottom: 7.5px;
+  background: #323232;
+  margin-top: 25px;
+  margin-bottom: 20px;
   padding: 7.5px; }
 
 #startGame {
@@ -53,7 +63,7 @@ sup {
 
 .start:hover {
   cursor: pointer;
-  background: #7290ff; }
+  background: darkgrey; }
 
 button:focus {
   outline: none; }
@@ -96,16 +106,16 @@ button:focus {
   transition: .4s; }
 
 input:checked + .sliderLeft {
-  background-color: #2196F3; }
+  background-color: #656AF7; }
 
 input:focus + .sliderLeft {
-  box-shadow: 0 0 1px #2196F3; }
+  box-shadow: 0 0 1px #656AF7; }
 
 input:checked + .sliderRight {
-  background-color: red; }
+  background-color: #FF5252; }
 
 input:focus + .sliderRight {
-  box-shadow: 0 0 1px red; }
+  box-shadow: 0 0 1px #FF5252; }
 
 input:checked + .slider:before {
   -webkit-transform: translateX(26px);
@@ -131,9 +141,6 @@ input:checked + .slider:before {
 .strict {
   margin-left: 30px; }
 
-.simon {
-  margin-top: 50px; }
-
 .row {
   width: 580px;
   display: flex;
@@ -145,42 +152,26 @@ input:checked + .slider:before {
   height: 250px; }
 
 .green {
-  border-top: 25px solid #282828;
-  border-left: 25px solid #282828;
-  border-right: 12.5px solid #282828;
-  border-bottom: 12.5px solid #282828;
   border-top-left-radius: 100%;
-  background: #00a845; }
+  background: #34A853; }
 
 .red {
-  border-top: 25px solid #282828;
-  border-left: 12.5px solid #282828;
-  border-right: 25px solid #282828;
-  border-bottom: 12.5px solid #282828;
   border-top-right-radius: 100%;
-  background: #a10b0f; }
+  background: #d73737; }
 
 .blue {
-  border-top: 12.5px solid #282828;
-  border-left: 12.5px solid #282828;
-  border-right: 25px solid #282828;
-  border-bottom: 25px solid #282828;
   border-bottom-right-radius: 100%;
-  background: #014891; }
+  background: #3961b9; }
 
 .yellow {
-  border-top: 12.5px solid #282828;
-  border-left: 25px solid #282828;
-  border-right: 12.5px solid #282828;
-  border-bottom: 25px solid #282828;
   border-bottom-left-radius: 100%;
-  background: #cda800; }
+  background: #f4d81d; }
 
 #green:hover, #red:hover, #blue:hover, #yellow:hover {
   cursor: pointer; }
 
 .clickedGreen {
-  background: #35ef55; }
+  background: #6ad86d; }
 
 .clickedRed {
   background: #fd2333; }
@@ -215,62 +206,8 @@ input:checked + .slider:before {
 .blueLoser {
   background: #830015; }
 
-#instructions {
-  position: fixed;
-  bottom: -5px;
-  left: 10px;
-  font-family: Avenir;
-  font-size: 15px;
-  text-decoration: underline; }
-
-#instructions:hover {
-  cursor: pointer;
-  color: white; }
-
-#credits {
-  position: fixed;
-  bottom: -5px;
-  right: 10px;
-  font-family: Avenir;
-  font-size: 15px; }
-
 a, a:visited {
   color: black; }
 
 a:hover {
   color: white; }
-
-#box {
-  display: none; }
-
-.instructions {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  z-index: 5;
-  background: rgba(5, 5, 5, 0.875);
-  display: flex;
-  flex-wrap: no-wrap;
-  justify-content: center;
-  align-items: center; }
-
-.rules {
-  color: #ebebeb;
-  font-family: Avenir;
-  font-size: 55px; }
-
-.rulesList {
-  font-size: 30px; }
-
-#close {
-  position: absolute;
-  color: #ebebeb;
-  font-size: 35px;
-  z-index: 10;
-  top: -45px;
-  right: 10px; }
-
-#close:hover {
-  color: #ff7134;
-  cursor: pointer; }
