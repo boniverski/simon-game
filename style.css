@@ -1,7 +1,5 @@
-* {
-  font-family: "Raleway"; }
-
 html, body {
+  font-family: "Raleway";
   height: 100%;
   margin: 0;
   background: #323232; }
@@ -205,9 +203,3 @@ input:checked + .slider:before {
 
 .blueLoser {
   background: #830015; }
-
-a, a:visited {
-  color: black; }
-
-a:hover {
-  color: white; }

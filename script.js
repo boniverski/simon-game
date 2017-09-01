@@ -73,7 +73,6 @@ function reset() {
 
 // Game start function:
 $("#startGame").click(function() {
-
 	if ( w > 0 ) {
 		$(".green").removeClass("greenWinner");
 		$(".red").removeClass("redWinner");
@@ -112,7 +111,6 @@ $('#switchLeft').change(function(){
 	}
 
 	if ( w < 0 ) {
-
 		n = 0;
 		game = [];
 		user = [];
@@ -194,7 +192,7 @@ function simon() {
 // Parse user input:
 function userPlay() {
 	// Game ends function:
-	if ( user[userCount] === game[userCount] && game.length === 5 && user.length === game.length ) {
+	if ( user[userCount] === game[userCount] && game.length === 20 && user.length === game.length ) {
 		console.log("Game over, you win!");
 
 		$(".green").addClass("greenWinner");
@@ -242,7 +240,6 @@ function userPlay() {
 		$(".red").addClass("redLoser");
 		$(".yellow").addClass("yellowLoser");
 		$(".blue").addClass("blueLoser");
-
 		// This is the restart function for strict mode:
 		setTimeout(function() {
 
@@ -267,7 +264,6 @@ function userPlay() {
 		$(".blue").addClass("blueLoser");
 
 		setTimeout(function() {
-
 			$(".green").removeClass("greenLoser");
 			$(".red").removeClass("redLoser");
 			$(".yellow").removeClass("yellowLoser");
@@ -308,7 +304,6 @@ function check() {
 
 	var timeFunction = setInterval(function() {
 		reset();
-
 		if ( n !== game.length ) {
 			repeat();
 		}
@@ -331,7 +326,6 @@ function checkRepeat() {
 
 	var timeFunction = setInterval(function() {
 		reset();
-
 		if ( n !== game.length ) {
 			repeat();
 		}
