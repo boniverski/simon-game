@@ -1,10 +1,8 @@
-// Initialize audio variales:
 var greenAudio  = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound1.mp3');
 var redAudio    = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound2.mp3');
 var yellowAudio = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound3.mp3');
 var blueAudio   = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound4.mp3');
 
-// Initialize all game variables:
 var game = [];
 var user = [];
 var rand = 1;
@@ -13,7 +11,7 @@ var counter = 0;
 var userCount = 0;
 var n = 0;
 
-// User click events trigget functions for each button:
+// Click handler for all areas within toy
 $('#green').click(function() {
 	green();
 	user.push(1);
@@ -71,13 +69,13 @@ function reset() {
 	$("#blue").removeClass("clickedBlue");
 }
 
-// Game start function:
+// Handling start of game
 $("#startGame").click(function() {
 	if ( w > 0 ) {
-		$(".green").removeClass("greenWinner");
-		$(".red").removeClass("redWinner");
-		$(".yellow").removeClass("yellowWinner");
-		$(".blue").removeClass("blueWinner");
+		$(".green").removeClass("greenWin");
+		$(".red").removeClass("redWin");
+		$(".yellow").removeClass("yellowWin");
+		$(".blue").removeClass("blueWin");
 
 		n = 0;
 		game = [];
@@ -88,24 +86,18 @@ $("#startGame").click(function() {
 		document.getElementById("gameCounter").innerHTML = 1;
 		machine();
 	}
-	else {
-		console.log("Game is off");
-	}
 });
 
 var z = -1;
 var w = -1;
 
-// Input switches control On/Off State and Strict Mode:
 $('#switchRight').change(function(){
 	z *= -1;
-	console.log("Strict Mode On/Off");
 });
 
 $('#switchLeft').change(function(){
 
 	w *= -1;
-	console.log("Game On/Off");
 	if ( w > 0 ) {
 		$("#startGame").css("color", "white");
 	}
@@ -122,19 +114,19 @@ $('#switchLeft').change(function(){
 
 		$("#startGame").css("color", "rgb(200,200,200");
 
-		$(".green").removeClass("greenLoser");
-		$(".red").removeClass("redLoser");
-		$(".yellow").removeClass("yellowLoser");
-		$(".blue").removeClass("blueLoser");
+		$(".green").removeClass("greenLose");
+		$(".red").removeClass("redLose");
+		$(".yellow").removeClass("yellowLose");
+		$(".blue").removeClass("blueLose");
 
-		$(".green").removeClass("greenWinner");
-		$(".red").removeClass("redWinner");
-		$(".yellow").removeClass("yellowWinner");
-		$(".blue").removeClass("blueWinner");
+		$(".green").removeClass("greenWin");
+		$(".red").removeClass("redWin");
+		$(".yellow").removeClass("yellowWin");
+		$(".blue").removeClass("blueWin");
 	}
 });
 
-// Computer plays function:
+// Handiling computer move
 function machine() {
 	var x = 1;
 	function clear() {
@@ -150,15 +142,14 @@ function machine() {
 			simon();
 			count++;
 
-			// Resets buttons after machine plays final round, so the user can continue:
+			// Resets buttons after computer plays final round, so the user can continue:
 			if (count === counter + 1) {
 				clear();
 				setTimeout(function() {
 					reset();
 				}, 500);
 			}
-		 // 500 millisecond pause before first button press
-	}, 750 * x); // Pause between iterations of button press functions
+	}, 750 * x);
 
 };
 
@@ -195,10 +186,10 @@ function userPlay() {
 	if ( user[userCount] === game[userCount] && game.length === 20 && user.length === game.length ) {
 		console.log("Game over, you win!");
 
-		$(".green").addClass("greenWinner");
-		$(".red").addClass("redWinner");
-		$(".yellow").addClass("yellowWinner");
-		$(".blue").addClass("blueWinner");
+		$(".green").addClass("greenWin");
+		$(".red").addClass("redWin");
+		$(".yellow").addClass("yellowWin");
+		$(".blue").addClass("blueWin");
 
 		document.getElementById("gameCounter").innerHTML = "Win!";
 	}
@@ -219,7 +210,6 @@ function userPlay() {
 
 	// User correctly identifies next element in series:
 	else if ( user[userCount] === game[userCount] ) {
-		console.log("Correct!");
 		userCount++;
 		setTimeout(function() {
 			reset();
@@ -227,8 +217,6 @@ function userPlay() {
 	}
 
 	else if ( z > 0 ) {
-
-		console.log("Wrong!");
 		game = [];
 		user = [];
 		count = 0;
@@ -236,19 +224,19 @@ function userPlay() {
 		n = 0;
 		document.getElementById("gameCounter").innerHTML = "Wrong!";
 
-		$(".green").addClass("greenLoser");
-		$(".red").addClass("redLoser");
-		$(".yellow").addClass("yellowLoser");
-		$(".blue").addClass("blueLoser");
+		$(".green").addClass("greenLose");
+		$(".red").addClass("redLose");
+		$(".yellow").addClass("yellowLose");
+		$(".blue").addClass("blueLose");
 		// This is the restart function for strict mode:
 		setTimeout(function() {
 
 			document.getElementById("gameCounter").innerHTML = 1;
 
-			$(".green").removeClass("greenLoser");
-			$(".red").removeClass("redLoser");
-			$(".yellow").removeClass("yellowLoser");
-			$(".blue").removeClass("blueLoser");
+			$(".green").removeClass("greenLose");
+			$(".red").removeClass("redLose");
+			$(".yellow").removeClass("yellowLose");
+			$(".blue").removeClass("blueLose");
 			machine();
 		}, 1750);
 	}
@@ -258,16 +246,16 @@ function userPlay() {
 
 		document.getElementById("gameCounter").innerHTML = "Wrong!";
 
-		$(".green").addClass("greenLoser");
-		$(".red").addClass("redLoser");
-		$(".yellow").addClass("yellowLoser");
-		$(".blue").addClass("blueLoser");
+		$(".green").addClass("greenLose");
+		$(".red").addClass("redLose");
+		$(".yellow").addClass("yellowLose");
+		$(".blue").addClass("blueLose");
 
 		setTimeout(function() {
-			$(".green").removeClass("greenLoser");
-			$(".red").removeClass("redLoser");
-			$(".yellow").removeClass("yellowLoser");
-			$(".blue").removeClass("blueLoser");
+			$(".green").removeClass("greenLose");
+			$(".red").removeClass("redLose");
+			$(".yellow").removeClass("yellowLose");
+			$(".blue").removeClass("blueLose");
 
 			document.getElementById("gameCounter").innerHTML = counter + 1;
 			document.getElementById("gameTitle").innerHTML = "Simon<sup>®</sup>";
@@ -318,7 +306,7 @@ function check() {
 
 }
 
-// Check function for when the user fails a round (normal mode):
+// Check function for when the user fails a round:
 function checkRepeat() {
 	function clear() {
 		clearInterval(timeFunction);

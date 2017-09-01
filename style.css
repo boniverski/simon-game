@@ -14,6 +14,7 @@ html, body {
   align-items: center; }
 
 .simon {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   box-sizing: border-box;
@@ -29,6 +30,7 @@ html, body {
   justify-content: center;
   align-items: center;
   position: absolute;
+  top: 125px;
   width: 250px;
   height: 250px;
   background: white;
@@ -181,26 +183,26 @@ input:checked + .slider:before {
 .clickedBlue {
   background: #1c8af4; }
 
-.greenWinner {
+.greenWin {
   background: #ffd425; }
 
-.redWinner {
+.redWin {
   background: #ffd425; }
 
-.yellowWinner {
+.yellowWin {
   background: #ffd425; }
 
-.blueWinner {
+.blueWin {
   background: #ffd425; }
 
-.greenLoser {
+.greenLose {
   background: #830015; }
 
-.redLoser {
+.redLose {
   background: #830015; }
 
-.yellowLoser {
+.yellowLose {
   background: #830015; }
 
-.blueLoser {
+.blueLose {
   background: #830015; }
